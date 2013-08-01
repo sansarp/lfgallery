@@ -131,7 +131,7 @@ DEPENDENCIES
   jquery-rails
   less-rails (>= 2.3.2)
   mysql2
-  pg (~> 0.16.0)
+  pg
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
   sdoc
