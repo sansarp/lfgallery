@@ -15,6 +15,9 @@ end
 group :production do
 	gem 'pg'
 end
+group :test do
+	gem 'rspec-rails'
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
