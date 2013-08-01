@@ -9,7 +9,8 @@ gem "twitter-bootstrap-rails"
 gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
-gem 'mysql2'
+gem 'mysql2', group: [:development, :test]
+gem 'pg', '~> 0.16.0', group: [:production]
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
