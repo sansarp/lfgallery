@@ -17,7 +17,12 @@ group :production do
 end
 group :test do
 	gem 'rspec-rails'
+	gem 'capybara'
+	gem 'launchy'
+	gem 'selenium-webdriver'
 end
+
+gem 'devise'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
