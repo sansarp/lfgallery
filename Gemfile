@@ -11,11 +11,13 @@ gem 'rails', '4.0.0'
 # Use sqlite3 as the database for Active Record
 group :development, :test do
 	gem 'mysql2'
+	#gem 'pry rails'
 end
 group :production do
 	gem 'pg'
 end
 group :test do
+	gem 'database_cleaner'
 	gem 'rspec-rails'
 	gem 'capybara'
 	gem 'launchy'

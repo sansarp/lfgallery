@@ -1,7 +1,10 @@
 require_relative '../spec_helper'
 
-describe "User Authentication" do 
-	it "signup user" do
+describe "User Authentication", :type=> :features do 
+	before :each do
+    User.create(:email => 'test@gmail.com', :password => 'test')
+  end
+	xit "signup user" do
 		visit '/users/sign_up'
 		fill_in 'Email', with: 'connect.subash@gmail.com'
 		fill_in 'Password', with: 'secret'
@@ -10,6 +13,18 @@ describe "User Authentication" do
 		click_button 'Sign up'
 		save_and_open_page
 		expect(page).to have_content 'signed up'
+	end
+
+	it "sign in user" do
+		visit '/sessions/new'
+		within ("#session") do
+			fill_in 'Email', with: 'test@gmail.com'
+			fill_in 'Password', with: 'test'
+		end
+	
+		click_button 'Sign in'
+		save_and_open_page
+		expect(page).to have_content 'Signed in successfully.'
 	end
 	
 end
