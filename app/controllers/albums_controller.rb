@@ -1,10 +1,20 @@
 class AlbumsController < ApplicationController
+  before_filter :authenticate_user!, :except => [:show, :index]
   before_action :set_album, only: [:show, :edit, :update, :destroy]
+  before_filter :auth_user
+
+  def auth_user
+    redirect_to new_user_session_url unless user_signed_in?
+  end
 
   # GET /albums
   # GET /albums.json
   def index
-    @albums = Album.all
+       @albums =  Album.find_all_by_user_id(current_user.id)
+      #@albums = current_user.albums.load  This is the alternate way for it
+      # @albums = Album.all
+      # puts @albums
+      # die
   end
 
   # GET /albums/1

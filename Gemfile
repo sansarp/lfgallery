@@ -11,7 +11,7 @@ gem 'rails', '4.0.0'
 # Use sqlite3 as the database for Active Record
 group :development, :test do
 	gem 'mysql2'
-	#gem 'pry rails'
+	gem 'pry-rails'
 end
 group :production do
 	gem 'pg'
