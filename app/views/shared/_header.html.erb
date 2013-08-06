@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gallery</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<h2 align="center">Gallery App</h2> <hr>
+<% if current_user %>
+	<%= "logged in as: #{current_user.email}" %>
+	<h3 align="right"><%= link_to 'Sign out', destroy_user_session_path, :method=>:delete  %></h3>
+	<% else %>
+		<%= link_to 'Sign in', new_user_session_path, :method=>:get  %>
+	<% end%>
+
+	<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+</body>

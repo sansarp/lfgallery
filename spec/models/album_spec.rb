@@ -1,8 +1,9 @@
 require_relative '../spec_helper'
+require 'pry'
 
 #Album is constant
-describe Album do 
-	it "title cannot be blank" do 
+describe "Album" do 
+	xit "title cannot be blank" do 
 		album = Album.new(title: '')
 		expect(album.valid?).to be(false)
 		
@@ -13,6 +14,7 @@ describe Album do
 			email: 'test@gmail.com',
 			password: 'test'
 			)
+		binding.pry
 		visit '/users/sign_in'
 		# fill_in 'Email', with: 'test@gmail.com'
 		# fill_in 'Password', with: 'test'
@@ -21,6 +23,5 @@ describe Album do
 		click_button 'Sign in'
 		expect(page).to have_content 'page11'
 
-		
 	end
 end

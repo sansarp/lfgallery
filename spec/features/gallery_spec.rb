@@ -29,4 +29,6 @@ describe "Album Ownership" do
 		expect(Album.last.user).to eq(user)
 		expect(Album.last.user).not_to eq(user2)
 	end
+
+	it 
 end
