@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130805053913) do
+ActiveRecord::Schema.define(version: 20130807075826) do
 
   create_table "albums", force: true do |t|
     t.string   "title"
@@ -19,6 +19,16 @@ ActiveRecord::Schema.define(version: 20130805053913) do
     t.datetime "updated_at"
     t.integer  "user_id"
   end
+
+  create_table "photos", force: true do |t|
+    t.string   "caption"
+    t.text     "description"
+    t.integer  "album_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "photos", ["album_id"], name: "index_photos_on_album_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -40,6 +50,7 @@ ActiveRecord::Schema.define(version: 20130805053913) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
