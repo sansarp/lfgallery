@@ -13,7 +13,7 @@ group :development, :test do
 	gem 'mysql2'
 	gem 'pry-rails'
 	gem 'carrierwave'
-	#gem 'rmagick'
+	gem 'rmagick'
 end
 group :production do
 	gem 'pg'
