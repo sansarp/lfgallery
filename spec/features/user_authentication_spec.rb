@@ -25,6 +25,5 @@ describe "User Authentication", :type=> :features do
 		click_button 'Sign in'
 		save_and_open_page
 		expect(page).to have_content 'Signed in successfully.'
-	end
-	
+	end	
 end

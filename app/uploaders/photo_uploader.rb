@@ -11,7 +11,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # def extension_white_list
   #   %w(jpg jpeg gif png)
   # end
-   # storage :fog
+  # storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -37,11 +37,11 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :scale => [50, 50]
+    process :resize_to_limit => [50, 50]
   end
 
   version :large do
-    process :scale => [250, 250]
+    process :resize_to_limit => [250, 250]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
