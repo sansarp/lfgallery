@@ -1,16 +1,23 @@
 <h1>Listing Photos</h1>
-
-<table>
+<img src='<%= @photos.photo_url(:thumb)%>'alt="photo"/>
+<table border="1" bgcolor="#335675">
   <thead>
     <tr>
-      <th>Title</th>
+      <th>Title |</th>
+      <th>Description |</th>
+      <th>Photo |</th>
     </tr>
   </thead>
-
   <tbody>
-  <img src='<%= @photos.photo_url%>' alt="photo"/>
-
+ 
+  <tr>
+  	<td><%= @photos.caption%></td>
+  	<td><%= @photos.description%></td>
+  	<td><%= @photos.photo %></td>
+  </tr>
+ 
   </tbody>
 </table>
-
+<%= link_to 'Add another photo', new_album_photo_path %>
+<%= link_to 'Back to Album List', albums_path %>
 <br>
