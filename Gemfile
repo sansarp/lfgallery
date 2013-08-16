@@ -14,6 +14,7 @@ group :development, :test do
 	gem 'pry-rails'
 	gem 'carrierwave'
 	gem 'rmagick'
+	gem 'quiet_assets'
 end
 group :production do
 	gem 'pg'

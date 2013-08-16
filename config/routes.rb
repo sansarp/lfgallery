@@ -1,10 +1,13 @@
 Gallery::Application.routes.draw do
   # get "photo/new"
   # get "photo/create"
+  # get '/support', to: "supports#new"
+  # post '/support', to: "supports#create"
   devise_for :users
   # devise_for :users do 
   #   get "/" => "devise/sessions#new"
   # end
+  resources :supports
   resources :albums do 
     resources :photos
   end
