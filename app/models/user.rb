@@ -7,4 +7,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
          has_many :albums
+    def admin?
+    	false
+    end
 end

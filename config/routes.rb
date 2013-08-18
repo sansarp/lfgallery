@@ -1,4 +1,6 @@
 Gallery::Application.routes.draw do
+  # resources :homes
+
   # get "photo/new"
   # get "photo/create"
   # get '/support', to: "supports#new"
@@ -12,7 +14,8 @@ Gallery::Application.routes.draw do
     resources :photos
   end
 
-  root 'albums#index'
+  # root 'albums#index'
+  root 'homes#index'
 
   #get "users/index"
   # get "users/show"

@@ -1,11 +1,13 @@
 class AlbumsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show, :index]
+  
+  before_filter :authenticate_user! , :except => [:show, :index]
+  load_and_authorize_resource
   before_action :set_album, only: [:show, :edit, :update, :destroy]
-  before_filter :auth_user
+  # before_filter :auth_user
 
-  def auth_user
-    redirect_to new_user_session_url unless user_signed_in?
-  end
+  # def auth_user
+  #   redirect_to new_user_session_url unless user_signed_in?
+  # end
 
   # GET /albums
   # GET /albums.json
@@ -20,11 +22,13 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
+      # authorize! :read, @album
   end
 
   # GET /albums/new
   def new
-    @album = Album.new
+    @album = current_user.albums.build
+    # @album = Album.new
   end
 
   # GET /albums/1/edit
@@ -79,7 +83,7 @@ class AlbumsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_album
-      @album = Album.find(params[:id])
+      @album ||= Album.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
