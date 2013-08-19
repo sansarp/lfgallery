@@ -1,5 +1,5 @@
 Gallery::Application.routes.draw do
-  # resources :homes
+   resources :homes
 
   # get "photo/new"
   # get "photo/create"

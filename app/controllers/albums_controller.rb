@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
   
-  before_filter :authenticate_user! , :except => [:show, :index]
+  before_filter :authenticate_user! #, :except => [:show, :index]
   load_and_authorize_resource
   before_action :set_album, only: [:show, :edit, :update, :destroy]
   # before_filter :auth_user
@@ -12,7 +12,8 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
   def index
-       @albums =  Album.find_all_by_user_id(current_user.id)
+      authorize! :read, @album
+      @albums =  Album.find_all_by_user_id(current_user.id)
       #@albums = current_user.albums.load  This is the alternate way for it
       # @albums = Album.all
       # puts @albums
@@ -22,7 +23,7 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
-      # authorize! :read, @album
+       # authorize! :read, @album
   end
 
   # GET /albums/new
@@ -84,6 +85,7 @@ class AlbumsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_album
       @album ||= Album.find(params[:id])
+      # authorize! :read, @album
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
