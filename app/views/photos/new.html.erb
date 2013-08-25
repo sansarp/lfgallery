@@ -1,22 +1,14 @@
 <h1><Add photo for:<%= @album.title %></h1>
-
-<%= form_for([@album,@photo]) do |f| %>
-	<p> <%=  f.label :caption%><br>
-	<%= f.text_field :caption %>
-	</p>
-
-	<p> <%=  f.label :description%><br>
-	<%= f.text_field :description %>
-	</p>
-	<p>
-		<%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) %>
-	</p>
-
-
-	<p> <%=  f.label :photo%><br>
-	<%= f.file_field :photo %>
-	</p>
-
-	<p class="button"><%= f.submit %></p>
+<h6>
+<%= simple_form_for([@album,@photo]) do |f| %>
+	
+	<%= f.input :caption, label: 'The name of photo' %>
+	<%= f.input :description, hint: 'At least 10 words' %>
+	<%= f.association :categories, as: :check_boxes %>
+	<%= f.input :photo %>
+	<%= f.input :rating, collection: 1..10, as: :radio%>
+	<%= f.button :submit %>
+	
 <% end %>
 
+</h6>

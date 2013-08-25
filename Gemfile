@@ -2,8 +2,7 @@ source 'https://rubygems.org'
 
 gem "therubyracer"
 gem 'less-rails', '>= 2.3.2' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem "twitter-bootstrap-rails"
-gem "twitter-bootstrap-rails"
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem "cancan"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -68,3 +67,4 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'simple_form'
