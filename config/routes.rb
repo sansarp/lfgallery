@@ -14,6 +14,8 @@ Gallery::Application.routes.draw do
     resources :photos
   end
 
+  resources :photos, only: [:show, :edit] 
+
   # root 'albums#index'
   root 'homes#index'
 

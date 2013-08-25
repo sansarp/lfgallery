@@ -8,6 +8,6 @@ class User < ActiveRecord::Base
 
          has_many :albums
     def admin?
-    	false
+    	true
     end
 end
