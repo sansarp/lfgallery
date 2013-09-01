@@ -1,7 +1,7 @@
 class AlbumsController < ApplicationController
   
   before_filter :authenticate_user! #, :except => [:show, :index]
-  load_and_authorize_resource
+  # load_and_authorize_resource
   before_action :set_album, only: [:show, :edit, :update, :destroy]
   # before_filter :auth_user
 
@@ -12,7 +12,7 @@ class AlbumsController < ApplicationController
   # GET /albums
   # GET /albums.json
   def index
-      authorize! :read, @album
+      # authorize! :read, @album
       @albums =  Album.find_all_by_user_id(current_user.id)
       #@albums = current_user.albums.load  This is the alternate way for it
       # @albums = Album.all
@@ -28,8 +28,8 @@ class AlbumsController < ApplicationController
 
   # GET /albums/new
   def new
-    @album = current_user.albums.build
-    # @album = Album.new
+    # @album = current_user.albums.build
+     @album = Album.new
   end
 
   # GET /albums/1/edit
@@ -39,15 +39,17 @@ class AlbumsController < ApplicationController
   # POST /albums
   # POST /albums.json
   def create
-    @album = Album.new(album_params)
-    @album.user_id = current_user.id
-    @album.user = current_user
+    # @album = Album.new
+    # @album.user_id = current_user.id
+    # @album.user = current_user
     @album = current_user.albums.build(album_params)
-
+    # binding.pry
     respond_to do |format|
       if @album.save
-        #send email notifications
-        AlbumMailer.notify_user(@album).deliver 
+      AlbumMailerWorker.perform_async(@album.id)
+        #send email notifications 
+
+        # AlbumMailer.notify_user(@album).deliver 
         format.html { redirect_to @album, notice: 'Album was successfully created.' }
         format.json { render action: 'show', status: :created, location: @album }
       else

@@ -6,7 +6,6 @@
 	<%= f.input :description, hint: 'At least 10 words' %>
 	<%= f.association :categories, as: :check_boxes %>
 	<%= f.input :photo %>
-	<%= f.input :rating, collection: 1..10, as: :radio%>
 	<%= f.button :submit %>
 	
 <% end %>
