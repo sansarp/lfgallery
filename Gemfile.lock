@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/millisami/store-engine.git
+  revision: bf4a2b27c252877137afa9a7dfe820064d13f65f
+  specs:
+    store (0.0.1)
+      rails (~> 4.0.0)
+
+GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: 40ffd567ee6bea9974710c58646d309d6a95faaf
   specs:
@@ -242,6 +249,7 @@ DEPENDENCIES
   simple_form
   sinatra
   slim
+  store!
   therubyracer
   turbolinks
   twitter-bootstrap-rails!

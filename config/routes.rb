@@ -1,4 +1,5 @@
 Gallery::Application.routes.draw do
+  get "product/index"
   resources :comments
 
    resources :homes

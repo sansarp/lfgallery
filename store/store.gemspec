@@ -7,16 +7,19 @@ require "store/version"
 Gem::Specification.new do |s|
   s.name        = "store"
   s.version     = Store::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Store."
-  s.description = "TODO: Description of Store."
+  s.authors     = ["Subash"]
+  s.email       = ["connect.subash@gmail.com"]
+  s.homepage    = "Store App"
+  s.summary     = "Summary of Store."
+  s.description = "Description of Store."
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["test/**/*"]
+  s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "rails", "~> 4.0.0"
 
   s.add_development_dependency "sqlite3"
+  s.add_development_dependency "rspec-rails"
+  s.add_development_dependency "capybara"
+  s.add_development_dependency "launchy"
 end
