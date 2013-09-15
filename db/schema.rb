@@ -20,12 +20,6 @@ ActiveRecord::Schema.define(version: 20130901070005) do
     t.integer  "user_id"
   end
 
-  create_table "categories", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "categories_photos", id: false, force: true do |t|
     t.integer  "category_id"
     t.integer  "photo_id"
@@ -55,13 +49,6 @@ ActiveRecord::Schema.define(version: 20130901070005) do
   end
 
   add_index "photos", ["album_id"], name: "index_photos_on_album_id", using: :btree
-
-  create_table "posts", force: true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "products", force: true do |t|
     t.string   "name"

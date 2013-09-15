@@ -7,6 +7,7 @@ gem "cancan"
 gem "sidekiq"
 gem "sinatra"
 gem "slim"
+gem 'capistrano', github:'capistrano/capistrano'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
